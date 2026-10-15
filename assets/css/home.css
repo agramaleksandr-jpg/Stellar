@@ -335,7 +335,7 @@
   .hero__scroll { display: none; }
 }
 @media (max-width: 720px) {
-  .stats__grid, .benefits, .colls, .news, .steps__list, .dealers { grid-template-columns: 1fr; }
+  .stats__grid, .benefits, .colls, .news, .steps__list, .dealers { grid-template-columns: minmax(0, 1fr); }
   .city-search { flex-direction: column; }
   .where__card, .prod__text { padding: 28px 20px; }
   .prod__tiles { grid-template-columns: 1fr; }
@@ -347,3 +347,12 @@
 .hero-card__img img { position: relative; z-index: 0; pointer-events: none; }
 .hero-card__img:hover img { transform: scale(1.06) rotate(-2deg); }
 .cities .btn { gap: 0; }
+
+/* кнопки первого экрана на телефоне: текст не обрезается, при нехватке места — в два ряда */
+@media (max-width: 960px) {
+  .hero__cta { flex-wrap: wrap; }
+  .hero__cta .btn { flex: 1 1 auto; min-width: max-content; white-space: nowrap; }
+}
+@media (max-width: 720px) {
+  .hero__cta .btn { padding: 0 18px; }
+}
